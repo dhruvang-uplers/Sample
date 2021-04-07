@@ -1,7 +1,7 @@
 export default function About() {
     return (
         <div>
-            About Me
+            About Me It's 6 Pm.
         </div>
     )
 }
