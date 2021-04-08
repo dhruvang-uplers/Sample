@@ -10,7 +10,7 @@ export default function Signup() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        Store.dispatch(emailSignup("Hello"))
+        Store.dispatch(emailSignup(emailRef.current.value, passwordRef.current.value))
 
         // try {
         //     setLoading(true);

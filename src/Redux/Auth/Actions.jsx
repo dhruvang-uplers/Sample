@@ -1,11 +1,11 @@
-export const emailSignup = (description) => ({
+export const emailSignup = (email, password) => ({
     type: "EMAIL_SIGNUP",
-    payload: { description }
+    payload: { email, password }
 })
 
-export const emailSignin = id => ({
+export const emailSignin = (email, password) => ({
     type: "EMAIL_SIGNIN",
-    payload: { id }
+    payload: { email, password }
 })
 
 export const emailSignout = id => ({
