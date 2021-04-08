@@ -3,6 +3,7 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Home from "./Pages/Home";
 import Bugs from "./Pages/Bugs";
+import Login from "./Pages/Login";
 
 export default function App() {
   return (
@@ -22,10 +23,16 @@ export default function App() {
             <li>
               <Link to="/bugs">Bugs</Link>
             </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
           </ul>
         </nav>
 
         <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/bugs">
             <Bugs />
           </Route>
