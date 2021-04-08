@@ -2,12 +2,13 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom"
 import Menu from "./Menu";
 import UserMenu from "./UserMenu";
+import UserMenuRes from "./UserMenuRes";
 
 
 export default function Header() {
     const [resMenu, setResMenu] = useState(false)
     return (
-        <header className="relative bg-white  border-b-2 border-gray-100">
+        <header className="fixed w-full bg-white  border-b-2 border-gray-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
                     <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -49,7 +50,7 @@ export default function Header() {
                             </div>
                         </div>
                         <div className="mt-6">
-                            {/* <AuthMenuRes /> */}
+                            <UserMenuRes />
                         </div>
                     </div>
                     <div className="py-6 px-5 space-y-6">
