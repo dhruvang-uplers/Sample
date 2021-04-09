@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
-import Store from "../Redux/Store";
-import { emailSignin } from "../Redux/Auth/Actions";
+
+
 
 export default function Login() {
     const emailRef = useRef();
@@ -9,7 +9,8 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
     function handleSubmit(e) {
         e.preventDefault();
-        Store.dispatch(emailSignin(emailRef.current.value, passwordRef.current.value))
+        console.log(emailRef.current.value, passwordRef.current.value)
+        // Store.dispatch(emailSignin(emailRef.current.value, passwordRef.current.value))
     }
 
     return (

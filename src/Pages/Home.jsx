@@ -1,16 +1,9 @@
-import { QueryClient, QueryClientProvider } from "react-query";
-import Counter from "../Components/Counter";
-import Members from "../Components/Members";
-
-const queryClient = new QueryClient();
+import React from 'react'
 
 export default function Home() {
     return (
         <div>
-            <QueryClientProvider client={queryClient}>
-                <Counter />
-                <Members />
-            </QueryClientProvider>
+            Home
         </div>
     )
 }
