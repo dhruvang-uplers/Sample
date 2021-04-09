@@ -5,6 +5,8 @@ import Login from "./Pages/Login";
 import Header from "./Components/Header/Header";
 import Contact from "./Pages/Contact";
 import Signup from "./Pages/Signup";
+import Dashboard from "./Pages/Dashboard";
+import PrivateRoute from "./Components/PrivateRoute";
 
 
 
@@ -13,11 +15,12 @@ export default function App() {
     <Router>
       <Header />
       <Switch>
-        <Route path="/signup"><Signup /></Route>
-        <Route path="/login"><Login /></Route>
-        <Route path="/about"><About /></Route>
-        <Route path="/contact"><Contact /></Route>
-        <Route path="/"><Home /></Route>
+        <PrivateRoute path="/dashboard" component={Dashboard} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/login" component={Login} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/" component={Home} />
       </Switch>
 
     </Router>

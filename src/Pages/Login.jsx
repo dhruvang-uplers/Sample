@@ -1,15 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useRef, useState } from "react";
+import { auth } from "../firebase";
 import Store from "../Redux/Store";
-import { emailSignin } from "../Redux/Auth/Actions";
+import { login } from "../Redux/Auth/Actions";
 
 export default function Login() {
+    const history = useHistory();
     const emailRef = useRef();
     const passwordRef = useRef();
     const [loading, setLoading] = useState(false);
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        Store.dispatch(emailSignin(emailRef.current.value, passwordRef.current.value))
+
+        await auth.signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value).then((userCredential) => {
+            var user = userCredential.user;
+            Store.dispatch(login({
+                uid: user.uid,
+                username: user.displayName,
+                email: user.email,
+                refreshToken: user.refreshToken,
+                avatar: user.photoURL
+            }))
+            //history.push("/dashboard");
+        }).catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.error({ errorCode, errorMessage });
+        });
     }
 
     return (
