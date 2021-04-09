@@ -1,23 +1,24 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
+import { connect } from "react-redux";
+import { Sign_in } from "../Redux/ActionCreator";
+// import { fetchUser } from "../Redux/ActionCreator";
 
-
-
-export default function Login() {
+const Login = (props) => {
     const emailRef = useRef();
     const passwordRef = useRef();
     const [loading, setLoading] = useState(false);
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(emailRef.current.value, passwordRef.current.value)
-        // Store.dispatch(emailSignin(emailRef.current.value, passwordRef.current.value))
+      props.Sign_in(emailRef.current.value, passwordRef.current.value)
     }
 
     return (
         <div className="flex flex-col justify-center items-center min-h-screen">
             <div className="p-5 shadow-md w-96">
                 <form onSubmit={handleSubmit}>
-                    <h3 className="text-2xl text-center mb-5">Sign in</h3>
+                
+                    <h3 className="text-2xl text-center mb-5">Sign in </h3>
                     <div className="flex flex-col mb-4">
                         <label className="mb-1">Email</label>
                         <input type="email" name="email" ref={emailRef} className="border px-4 py-2" />
@@ -27,7 +28,7 @@ export default function Login() {
                         <input type="password" name="password" ref={passwordRef} className="border px-4 py-2" />
                     </div>
                     <div className="flex justify-between items-center mb-5">
-                        <button className="bg-indigo-700 text-white px-4 py-2 w-24">Login</button>
+                        <button className="bg-indigo-700 text-white px-4 py-2 w-24" >Login</button>
                         <Link to="/#" className="text-indigo-700">Forget Password?</Link>
                     </div>
                 </form>
@@ -59,3 +60,15 @@ export default function Login() {
         </div >
     )
 }
+//const increment = (mail,password) => ({type:"Sign_in",payload: {email:mail,password:password}})
+const mapStateToProps=(state)=>{
+    console.log(state);
+    return {isLogin:state.signin}
+}
+
+// const mapDispatchToProps=(dispatch,ownProps)=> {
+//     return {
+//          Sign_in: (mail,password) => dispatch(modalOpen(mail,password)) ,
+//         };
+//   }
+export default connect(mapStateToProps,{Sign_in})(Login)

@@ -1,14 +1,14 @@
 const initialState = {
-    signin: false
+    isLogin: false
 }
 
-export default (state = initialState, { type, payload }) => {
+export const Reducer= (state = initialState, { type, payload }) => {
+    console.log(type);
     switch (type) {
-
-        // case Sign_in:
-        //     console.log(payload)
-        //     return { ...state, ...payload }
-
+       
+        case "Sign_in":
+            console.log(payload);
+            return { ...state, isLogin:true,...payload }
         default:
             return state
     }
