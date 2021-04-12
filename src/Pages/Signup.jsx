@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
-
+import { handleSignUp } from "../Firebase/auth"
 export default function Signup() {
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -8,6 +8,7 @@ export default function Signup() {
 
     function handleSubmit(e) {
         e.preventDefault();
+        handleSignUp(emailRef.current.value, passwordRef.current.value)
         // Store.dispatch(emailSignup(emailRef.current.value, passwordRef.current.value))
 
         // try {

@@ -2,9 +2,8 @@ import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Sign_in } from "../Redux/ActionCreator";
-import firebase from "firebase";
-import { db, firebaseConfig } from "../Firebase/Firebase.js";
 
+import { handleSignUp, handleSignIn, onChange, googlePopup } from "../Firebase/auth"
 const Login = (props) => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -19,38 +18,7 @@ const Login = (props) => {
     //   timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
     // });
   }
-  function handleSignIn(email, password) {
-    firebaseConfig
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Signed in
-        var user = userCredential.user;
-        console.log(user);
-        // ...
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorMessage);
-        // ..
-      });
-  }
-  const onChange = () => {
-    firebaseConfig.auth().onAuthStateChanged(function (user) {
-      console.log(user);
-      if (user) {
-        console.log(user);
-        console.log(user.displayName);
-        console.log(user.email);
-        console.log(user.photoURL);
-        console.log(user.emailVerified);
-        console.log(user.uid);
-      } else {
-        console.log("error");
-      }
-    });
-  };
+ 
   useEffect(() => {
     onChange();
     // db.collection("Login").onSnapshot((snapshot) => {
@@ -90,7 +58,7 @@ const Login = (props) => {
           <hr className='w-24 border-indigo-700' />
         </div>
         <ul className='flex justify-center mt-4'>
-          <li className='m-2'>
+          <li className='m-2' onClick={googlePopup}>
             <svg
               width='25'
               xmlns='http://www.w3.org/2000/svg'
