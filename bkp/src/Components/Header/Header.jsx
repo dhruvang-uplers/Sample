@@ -4,9 +4,9 @@ import Menu from "./Menu";
 import UserMenu from "./UserMenu";
 import UserMenuRes from "./UserMenuRes";
 
-export default function Header(props) {
-    const [resMenu, setResMenu] = useState(false)
 
+export default function Header() {
+    const [resMenu, setResMenu] = useState(false)
     return (
         <header className="w-full bg-white  border-b-2 border-gray-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -62,5 +62,4 @@ export default function Header(props) {
             </div>
         </header >
     )
-
 }
