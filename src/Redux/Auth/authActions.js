@@ -21,6 +21,24 @@ const loginError = () => {
     };
 };
 
+const requestLogout = () => {
+    return {
+        type: actions.LOGOUT_REQUEST
+    };
+};
+
+const receiveLogout = () => {
+    return {
+        type: actions.LOGOUT_SUCCESS
+    };
+};
+
+const logoutError = () => {
+    return {
+        type: actions.LOGOUT_FAILURE
+    };
+};
+
 const verifyRequest = () => {
     return {
         type: actions.VERIFY_REQUEST
@@ -42,13 +60,19 @@ export const loginUser = (email, password) => dispatch => {
     });
 };
 
+export const logoutUser = () => dispatch => {
+    dispatch(requestLogout());
+    auth.signOut().then(() => {
+        dispatch(receiveLogout());
+    }).catch(error => {
+        dispatch(logoutError());
+    });
+};
+
 export const verifyAuth = () => dispatch => {
     dispatch(verifyRequest());
     auth.onAuthStateChanged(user => {
-        console.log(user);
-        if (user !== null) {
-            dispatch(receiveLogin(user));
-        }
+        user !== null && dispatch(receiveLogin(user))
         dispatch(verifySuccess());
     });
 };

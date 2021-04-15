@@ -33,6 +33,25 @@ export default function AuthReducer(state = initialState, action) {
                 isAuthenticated: false,
                 loginError: true
             };
+        case actions.LOGOUT_REQUEST:
+            return {
+                ...state,
+                isLoggingOut: true,
+                logoutError: false
+            };
+        case actions.LOGOUT_SUCCESS:
+            return {
+                ...state,
+                isLoggingOut: false,
+                isAuthenticated: false,
+                user: {}
+            };
+        case actions.LOGOUT_FAILURE:
+            return {
+                ...state,
+                isLoggingOut: false,
+                logoutError: true
+            };
         case actions.VERIFY_REQUEST:
             return {
                 ...state,

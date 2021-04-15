@@ -13,7 +13,7 @@ function Login(props) {
     }
 
     if (isAuthenticated) {
-        return <Redirect to="/" />
+        return <Redirect to="/dashboard" />
     } else {
         return (
             <div className="flex flex-col justify-center items-center min-h-screen">

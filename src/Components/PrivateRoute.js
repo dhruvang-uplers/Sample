@@ -1,9 +1,9 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default function PrivateRoute({ component: Component, isAuthenticated, isVerifying, ...rest }) {
-    console.log(isAuthenticated, isVerifying);
-
+function PrivateRoute({ component: Component, isAuthenticated, isVerifying, ...rest }) {
+    console.log(rest);
     return (
         <div>
             <Route
@@ -19,3 +19,12 @@ export default function PrivateRoute({ component: Component, isAuthenticated, is
         </div>
     );
 }
+
+
+function mapStateToProps(state) {
+    return {
+        isAuthenticated: state.AuthReducer.isAuthenticated,
+        isVerifying: state.AuthReducer.isVerifying
+    };
+}
+export default connect(mapStateToProps)(PrivateRoute);
