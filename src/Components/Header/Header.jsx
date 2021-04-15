@@ -4,7 +4,9 @@ import Menu from "./Menu";
 import UserMenu from "./UserMenu";
 import UserMenuRes from "./UserMenuRes";
 
-export default function Header() {
+export default function Header(props) {
+  
+  const {isAuthenticated}=props
   const [resMenu, setResMenu] = useState(false);
   return (
     <header className='fixed w-full bg-white  border-b-2 border-gray-100'>

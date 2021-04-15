@@ -1,12 +1,15 @@
 import {
-  LOGIN_REQ,
   LOGIN_DONE,
-  LOGIN_FAIL,
-  LOGOUT_REQ,
+  LOGIN_FAIL, LOGIN_REQ,
+
+
+
   LOGOUT_DONE,
-  LOGOUT_FAIL,
+  LOGOUT_FAIL, LOGOUT_REQ,
+
+
   VERIFY_REQ,
-  VERIFY_SUCC,
+  VERIFY_SUCC
 } from "./ActionCreator";
 
 const initialState = {
@@ -26,11 +29,11 @@ export const Reducer = (state = initialState, { type, payload }) => {
       return { ...state, isLoggingIn: true, isLoginError: false };
     case LOGIN_DONE:
       //  console.log(payload);
-      return { ...state, isLoggingIn: false, isAuthenticated: true, user: payload };
+      return { ...state, isLoggingIn: true, isAuthenticated: true, user: payload };
     case LOGIN_FAIL:
       return { ...state, isLoggingIn: false, isLoginError: true, isAuthenticated: false };
     case LOGOUT_REQ:
-      return { ...state, isLoggingIn: true, logoutError: false };
+      return { ...state, isLoggingIn: false, logoutError: false };
     case LOGOUT_DONE:
       return { ...state, isLoggingOut: false, isAuthenticated: false, user: {} };
     case LOGOUT_FAIL:

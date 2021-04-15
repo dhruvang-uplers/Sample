@@ -1,14 +1,14 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { connect } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Header from "./Components/Header/Header";
+import PrivateRoute from "./Components/Header/PrivateRoute";
 import About from "./Pages/About";
+import Contact from "./Pages/Contact";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
-import Header from "./Components/Header/Header";
-import Contact from "./Pages/Contact";
 import Signup from "./Pages/Signup";
-import { connect } from "react-redux";
-import { useEffect } from "react";
 import { VerifyUser } from "./Redux/ActionCreator";
-import PrivateRoute from "./Components/Header/PrivateRoute";
 
 const App = (props) => {
   const { isAuthenticated, isVerify } = props;
@@ -28,20 +28,39 @@ const App = (props) => {
           <Login />
         </Route>
         {/* <Route path='/login' render={() => ( !this.state.isLoggedIn ? <Login /> : <Redirect to='/user-profile' /> )}/> */}
-        <PrivateRoute exact path='/about' component={About} isAuthenticated={isAuthenticated} isVerify={isVerify} />
-        <PrivateRoute exact path='/contact' component={Contact} isAuthenticated={isAuthenticated} isVerify={isVerify} />
-        <PrivateRoute exact path='/' component={Home} isAuthenticated={isAuthenticated} isVerify={isVerify} />
+        <PrivateRoute
+          exact
+          path='/about'
+          component={About}
+          isAuthenticated={isAuthenticated}
+          isVerify={isVerify}
+        />
+        <PrivateRoute
+          exact
+          path='/contact'
+          component={Contact}
+          isAuthenticated={isAuthenticated}
+          isVerify={isVerify}
+        />
+        <PrivateRoute
+          exact
+          path='/'
+          component={Home}
+          isAuthenticated={isAuthenticated}
+          isVerify={isVerify}
+          displayName={props.displayName}
+        />
       </Switch>
     </Router>
   );
 };
 const mapStateToProps = (state) => {
-  // console.log(state);
   return {
     isLoggingIn: state.isLoggingIn,
     loginError: state.isLoginError,
     isAuthenticated: state.isAuthenticated,
     isVerify: state.isVerify,
+    displayName: state.user.displayName,
   };
 };
 
