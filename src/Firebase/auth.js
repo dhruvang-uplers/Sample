@@ -1,6 +1,7 @@
 import firebase from "firebase";
 import { db, firebaseConfig } from "../Firebase/Firebase.js";
-function handleSignUp(email, password) {
+
+const handleSignUp = (email, password) => {
   firebaseConfig
     .auth()
     .createUserWithEmailAndPassword(email, password)
@@ -14,8 +15,8 @@ function handleSignUp(email, password) {
       var errorMessage = error.message;
       console.log(errorMessage);
     });
-}
-function handleSignIn(email, password) {
+};
+const handleSignIn = (email, password) => {
   firebaseConfig
     .auth()
     .signInWithEmailAndPassword(email, password)
@@ -29,21 +30,24 @@ function handleSignIn(email, password) {
       var errorMessage = error.message;
       console.log(errorMessage);
     });
-}
+};
+let isAuthnticate;
 const onChange = () => {
   firebaseConfig.auth().onAuthStateChanged(function (user) {
-    console.log(user);
     if (user) {
-      console.log(user);
       console.log(user.displayName);
       console.log(user.email);
-      console.log(user.photoURL);
-      console.log(user.emailVerified);
-      console.log(user.uid);
+      isAuthnticate = true;
+      //   console.log(user.photoURL);
+      //  console.log(user.emailVerified);
+      //  console.log(user.uid);
+      return "valid";
     } else {
       console.log("error");
+      isAuthnticate = false;
     }
   });
+  return isAuthnticate;
 };
 const googlePopup = () => {
   var provider = new firebase.auth.GoogleAuthProvider();
