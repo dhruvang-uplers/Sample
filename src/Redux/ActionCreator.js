@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import { db, firebaseConfig } from "../Firebase/Firebase.js";
+import { firebaseConfig } from "../Firebase/Firebase.js";
 
 export const SIGNUP_REQ = "SIGNUP_REQ";
 export const SIGNUP_DONE = "SIGNUP_DONE";

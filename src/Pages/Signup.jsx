@@ -11,17 +11,6 @@ const Signup = (props) => {
   function handleSubmit(e) {
     e.preventDefault();
     props.SignUpUser(emailRef.current.value, passwordRef.current.value);
-    // Store.dispatch(emailSignup(emailRef.current.value, passwordRef.current.value))
-
-    // try {
-    //     setLoading(true);
-    //     // setError("");
-    //     // await signup(emailRef.current.value, passwordRef.current.value);
-    //     // history.push("/");
-    // } catch {
-    //     // setError("Failed to create an account");
-    // }
-    // setLoading(false);
   }
 
   return (
@@ -55,7 +44,7 @@ const Signup = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  //  console.log(state);
   return { isLoggingIn: state.isLoggingIn, loginError: state.isLoginError, isAuthenticated: state.isAuthenticated };
 };
 
