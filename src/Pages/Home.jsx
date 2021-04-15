@@ -1,11 +1,13 @@
 import React from 'react';
-import InfoForm from "../Components/Header/Form";
+import Fates from "../Components/date";
+
 export default function Home(props) {
    
     return (
         <div>
             Home
-            <InfoForm displayName={props.displayName}></InfoForm>
+            {/* <InfoForm displayName={props.displayName}></InfoForm> */}
+            <Fates></Fates>
         </div>
     )
 }
