@@ -8,17 +8,16 @@ const Login = (props) => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const [loading, setLoading] = useState(false);
-  const [isAuth, setAuth] = useState(false);
   let history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
     props.loginUser(emailRef.current.value, passwordRef.current.value);
+    history.push("/");
   }
 
   useEffect(() => {
     console.log(props);
-
     // isAuth ? history.push("/") : history.push("/login");
   }, []);
   if (props.isAuthenticated) {
