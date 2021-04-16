@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./Components/Header/Header";
 import PrivateRoute from "./Components/Header/PrivateRoute";
+import View from "./Components/View";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Home from "./Pages/Home";
@@ -19,7 +19,7 @@ const App = (props) => {
   console.log(isAuthenticated, isVerify, " isAuthenticated, isVerifying");
   return (
     <Router>
-      <Header />
+      {/* <Header /> */}
       <Switch>
         <Route path='/signup'>
           <Signup />
@@ -50,6 +50,13 @@ const App = (props) => {
           isVerify={isVerify}
           displayName={props.displayName}
         />
+        <PrivateRoute
+          path='/view/:id'
+          component={View}
+          isAuthenticated={isAuthenticated}
+          isVerify={isVerify}
+        /> 
+        
       </Switch>
     </Router>
   );
