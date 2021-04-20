@@ -51,6 +51,15 @@ const verifySuccess = () => {
     };
 };
 
+export const createUser = (email, password) => dispatch => {
+    dispatch(requestLogin());
+    auth.createUserWithEmailAndPassword(email, password).then(user => {
+        dispatch(receiveLogin(user));
+    }).catch(error => {
+        dispatch(loginError());
+    });
+};
+
 export const loginUser = (email, password) => dispatch => {
     dispatch(requestLogin());
     auth.signInWithEmailAndPassword(email, password).then(user => {

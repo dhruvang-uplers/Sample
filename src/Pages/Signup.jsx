@@ -1,15 +1,18 @@
 import { Link, Redirect } from "react-router-dom";
 import { useRef, useState } from "react";
 import { connect } from "react-redux";
+import { createUser } from '../Redux/Auth/authActions'
+
 
 function Signup(props) {
-    const { isAuthenticated } = props
+    const { dispatch, isAuthenticated } = props
     const emailRef = useRef();
     const passwordRef = useRef();
     const [loading, setLoading] = useState(false);
 
     function handleSubmit(e) {
         e.preventDefault();
+        dispatch(createUser(emailRef.current.value, passwordRef.current.value));
     }
     if (isAuthenticated) {
         return <Redirect to="/dashboard" />

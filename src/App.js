@@ -9,6 +9,7 @@ import Signup from "./Pages/Signup";
 import Dashboard from "./Pages/Dashboard";
 import PrivateRoute from "./Components/PrivateRoute";
 import Profile from "./Pages/Profile";
+import Invites from "./Pages/Invites";
 
 function App(props) {
   const { isAuthenticated, isVerifying, user } = props
@@ -21,6 +22,7 @@ function App(props) {
         <Switch>
           <PrivateRoute path="/dashboard" component={Dashboard} isAuthenticated={isAuthenticated} isVerifying={isVerifying} />
           <PrivateRoute path="/profile" component={Profile} isAuthenticated={isAuthenticated} isVerifying={isVerifying} />
+          <PrivateRoute path="/invites" component={Invites} isAuthenticated={isAuthenticated} isVerifying={isVerifying} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/about" component={About} />

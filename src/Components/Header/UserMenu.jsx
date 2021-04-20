@@ -36,7 +36,7 @@ function UserMenu(props) {
                 </button>
                 <div className={"absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20 " + (userMenu ? 'block' : 'hidden')}>
                     <NavLink to="/profile" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-indigo-700 hover:text-white">your profile</NavLink>
-                    <NavLink to="/" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-indigo-700 hover:text-white">Your projects</NavLink>
+                    <NavLink to="/invites" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-indigo-700 hover:text-white">Your invites</NavLink>
                     <NavLink to="/" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-indigo-700 hover:text-white">Help</NavLink>
                     <NavLink to="/" className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-indigo-700 hover:text-white">Settings</NavLink>
                     <button onClick={logout} className="w-full text-left px-4 py-2 text-sm capitalize text-gray-700 hover:bg-indigo-700 hover:text-white">Sign Out</button>
