@@ -13,7 +13,7 @@ const Form = (props) => {
   const [Username, setUsername] = useState();
   const [massage, setMassage] = useState();
   useEffect(() => {
-    db.collection("massage")
+    db.collection("Invitation")
       .orderBy("timeStamp", "desc")
       .onSnapshot((snapshot) => {
         setMassage(snapshot.docs.map((doc) => ({ id: doc.id, doc: doc.data() })));
@@ -22,7 +22,7 @@ const Form = (props) => {
   useEffect(() => {
     setUsername(props.displayName);
   }, [props.displayName]);
-  console.log(props.displayName);
+
 
   const SignupSchema = Yup.object().shape({
     firstName: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
@@ -41,7 +41,7 @@ const Form = (props) => {
             const Date = values.startDate.format("DD-MM-YYYY");
             setTimeout(() => {
               console.log(JSON.stringify(values, null, 2));
-              db.collection("massage")
+              db.collection("Invitation")
                 .add({
                   Address: values.Address,
                   firstName: values.firstName,

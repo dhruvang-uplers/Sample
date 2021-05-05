@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
 import { db } from "../Firebase/Firebase";
+
 export default function View(props) {
   const { id } = props.match.params;
   const [userData, setUserData] = useState();
   useEffect(() => {
-    var docRef = db.collection("massage").doc(id);
+    var docRef = db.collection("Invitation").doc(id);
     docRef
       .get()
       .then((doc) => {
@@ -20,10 +23,33 @@ export default function View(props) {
         console.log("Error getting document:", error);
       });
   }, []);
-
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
   return (
-    <div>
-      <h1>this is View Componants</h1>
-    </div>
+    <Slider {...settings}>
+      <div>
+        <h3>1</h3>
+      </div>
+      <div>
+        <h3>2</h3>
+      </div>
+      <div>
+        <h3>3</h3>
+      </div>
+      <div>
+        <h3>4</h3>
+      </div>
+      <div>
+        <h3>5</h3>
+      </div>
+      <div>
+        <h3>6</h3>
+      </div>
+    </Slider>
   );
 }
