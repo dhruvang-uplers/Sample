@@ -16,7 +16,7 @@ export default function BirthdayCard({ firstName, Address, email, EventDate }) {
             <li id='date'>{EventDate}</li>
             <li id='place'>{Address}</li>
             <li class='whiteText'>823 S Broadway</li>
-            <li class='whiteText'>Happy Town, USA</li>
+            <li class='whiteText'>Happy Town, USA </li>
             <li class='whiteText padding'>RSVP to save your slice of cake.</li>
             <li class='whiteText padding'>For more information, call 867-5309</li>
           </ul>
