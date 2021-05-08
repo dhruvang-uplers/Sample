@@ -1,15 +1,12 @@
 import {
   LOGIN_DONE,
-  LOGIN_FAIL, LOGIN_REQ,
-
-
-
+  LOGIN_FAIL,
+  LOGIN_REQ,
   LOGOUT_DONE,
-  LOGOUT_FAIL, LOGOUT_REQ,
-
-
+  LOGOUT_FAIL,
+  LOGOUT_REQ,
   VERIFY_REQ,
-  VERIFY_SUCC
+  VERIFY_SUCC,
 } from "./ActionCreator";
 
 const initialState = {

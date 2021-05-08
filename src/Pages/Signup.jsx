@@ -1,17 +1,23 @@
 import { Link } from "react-router-dom";
-import { useRef, useState } from "react";
-
+import { useRef, useState, useEffect } from "react";
+import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { SignUpUser } from "../Redux/ActionCreator";
 const Signup = (props) => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const [loading, setLoading] = useState(false);
-
+  let history = useHistory();
   function handleSubmit(e) {
     e.preventDefault();
     props.SignUpUser(emailRef.current.value, passwordRef.current.value);
   }
+  useEffect(() => {
+    console.log(props);
+    if (props.isAuthenticated) {
+      history.push("/");
+    }
+  }, [props]);
 
   return (
     <div className='flex flex-col justify-center items-center min-h-screen'>
@@ -28,10 +34,10 @@ const Signup = (props) => {
           </div>
           <div className='flex justify-between items-center mb-5'>
             <button className='bg-indigo-700 text-white px-4 py-2 w-24' disabled={loading}>
-              Login
+              SignUp
             </button>
             <div>
-              Have an Account?{" "}
+              Have an Account?
               <Link to='/login' className='text-indigo-700'>
                 Login Here
               </Link>

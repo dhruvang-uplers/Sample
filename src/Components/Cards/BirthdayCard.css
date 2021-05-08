@@ -1,0 +1,71 @@
+#outerShell {
+  height: 590px;
+  width: 400px;
+  background: #00425c;
+  margin: auto;
+  box-shadow: 10px 10px 10px #cccccc;
+}
+
+#stars {
+  width: 380px;
+  margin: 10px;
+  z-index: 1;
+}
+
+#unicorn {
+  width: 300px;
+  margin-left: 50px;
+  z-index: 2;
+  position: relative;
+  top: -575px;
+}
+
+#infoBox {
+  background-color: #00425c;
+  border-radius: 100px;
+  border: dotted 2px #ea65a4;
+  box-shadow: 2px 2px 10px;
+  position: relative;
+  top: -575px;
+  margin-left: 75px;
+  width: 250px;
+  height: 300px;
+  text-align: center;
+}
+
+ul {
+  margin-top: 60px;
+  list-style: none;
+  padding: 0px;
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+
+#name {
+  font-size: 25px;
+  color: #eb65a2;
+  text-shadow: 5px 2px 10px black;
+}
+
+.whiteText {
+  color: #f9f9f9;
+  font-size: 10px;
+}
+
+#date {
+  color: #f1b0c6;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+#place {
+  color: #b76599;
+  font-size: 14px;
+}
+
+#padding {
+  padding-top: 8px;
+}
+
+#top {
+  padding-bottom: 8px;
+}

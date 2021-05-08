@@ -8,6 +8,8 @@ import Contact from "./Pages/Contact";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
+import BirthdayForm from "./Components/FormsComponats/BirthdayForm";
+import MarriageForm from "./Components/FormsComponats/MarrageForm";
 import { VerifyUser } from "./Redux/ActionCreator";
 
 const App = (props) => {
@@ -28,35 +30,26 @@ const App = (props) => {
           <Login />
         </Route>
         {/* <Route path='/login' render={() => ( !this.state.isLoggedIn ? <Login /> : <Redirect to='/user-profile' /> )}/> */}
+        <PrivateRoute exact path='/about' component={About} isAuthenticated={isAuthenticated} isVerify={isVerify} />
+        <PrivateRoute exact path='/contact' component={Contact} isAuthenticated={isAuthenticated} isVerify={isVerify} />
+        <PrivateRoute exact path='/' component={Home} isAuthenticated={isAuthenticated} isVerify={isVerify} />
         <PrivateRoute
           exact
-          path='/about'
-          component={About}
-          isAuthenticated={isAuthenticated}
-          isVerify={isVerify}
-        />
-        <PrivateRoute
-          exact
-          path='/contact'
-          component={Contact}
-          isAuthenticated={isAuthenticated}
-          isVerify={isVerify}
-        />
-        <PrivateRoute
-          exact
-          path='/'
-          component={Home}
+          path='/birthday'
+          component={BirthdayForm}
           isAuthenticated={isAuthenticated}
           isVerify={isVerify}
           displayName={props.displayName}
         />
         <PrivateRoute
-          path='/view/:id'
-          component={View}
+          exact
+          path='/marriage'
+          component={MarriageForm}
           isAuthenticated={isAuthenticated}
           isVerify={isVerify}
-        /> 
-        
+          displayName={props.displayName}
+        />
+        <PrivateRoute path='/view' component={View} isAuthenticated={isAuthenticated} isVerify={isVerify} />
       </Switch>
     </Router>
   );
