@@ -8,7 +8,7 @@ const handleSignUp = (email, password) => {
     .then((userCredential) => {
       // Signed in
       var user = userCredential.user;
-      console.log(user);
+     // console.log(user);
     })
     .catch((error) => {
       var errorCode = error.code;
@@ -35,7 +35,7 @@ let isAuthnticate;
 const onChange = () => {
   firebaseConfig.auth().onAuthStateChanged(function (user) {
     if (user) {
-      console.log(user.displayName);
+    //  console.log(user.displayName);
       console.log(user.email);
       isAuthnticate = true;
       //   console.log(user.photoURL);
@@ -60,10 +60,10 @@ const googlePopup = () => {
 
       // This gives you a Google Access Token. You can use it to access the Google API.
       var token = credential.accessToken;
-      console.log(token, credential);
+    //  console.log(token, credential);
       // The signed-in user info.
       var user = result.user;
-      console.log(user);
+     // console.log(user);
       // ...
     })
     .catch((error) => {

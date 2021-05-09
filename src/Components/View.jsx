@@ -6,6 +6,7 @@ import BirthdayCard from "./Cards/BirthdayCard";
 export default function View(props) {
   const { id } = props.match.params;
   const [userData, setUserData] = useState();
+
   useEffect(() => {
     var docRef = db.collection("Invitation").doc(id);
     docRef
@@ -26,7 +27,8 @@ export default function View(props) {
 
   return (
     <>
-      <BirthdayCard userData={userData}></BirthdayCard>
+    {console.log(userData)}
+    {userData?  <BirthdayCard userData={userData}></BirthdayCard>:<h2>loading...</h2>}
     </>
   );
 }

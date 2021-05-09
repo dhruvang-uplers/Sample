@@ -49,7 +49,7 @@ const App = (props) => {
           isVerify={isVerify}
           displayName={props.displayName}
         />
-        <PrivateRoute path='/view' component={View} isAuthenticated={isAuthenticated} isVerify={isVerify} />
+        <PrivateRoute path='/view/:id' component={View} isAuthenticated={isAuthenticated} isVerify={isVerify} />
       </Switch>
     </Router>
   );

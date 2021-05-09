@@ -1,13 +1,15 @@
 import React from "react";
 import "./BirthdayCard.css";
-export default function BirthdayCard({ firstName, Address, email, EventDate }) {
+export default function BirthdayCard(userData) {
+  console.log(userData?userData.userDataa:userData)
+  const {firstName,EventDate,Address}=userData.userData
   return (
     <>
       <div id='outerShell'>
         <img id='stars' src='https://github.com/RebekahAmerson/invitation-Mockup/blob/master/Stars.png?raw=true' />
         <img id='unicorn' src='https://github.com/RebekahAmerson/invitation-Mockup/blob/master/Unicorn.png?raw=true' />
         <div id='infoBox'>
-          <ul>
+  <ul>
             <li id='top' class='whiteText'>
               Join us to celebrate the birthday of
             </li>

@@ -98,7 +98,7 @@ const LogOutUser = () => (dispatch) => {
     .then(() => {
       // Sign-out successful.
       dispatch(reciveSignout());
-      console.log(" Sign-out successful");
+     // console.log(" Sign-out successful");
     })
     .catch((error) => {
       // An error happened.
@@ -119,7 +119,7 @@ const googlePopup = () => (dispatch) => {
 
       // This gives you a Google Access Token. You can use it to access the Google API.
       var token = credential.accessToken;
-      console.log(token, credential);
+     // console.log(token, credential);
       // The signed-in user info.
       var user = result.user;
       dispatch(reciveSignin(user));

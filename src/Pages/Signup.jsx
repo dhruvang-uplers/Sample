@@ -13,7 +13,7 @@ const Signup = (props) => {
     props.SignUpUser(emailRef.current.value, passwordRef.current.value);
   }
   useEffect(() => {
-    console.log(props);
+   // console.log(props);
     if (props.isAuthenticated) {
       history.push("/");
     }

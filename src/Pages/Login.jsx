@@ -17,7 +17,7 @@ const Login = (props) => {
   }
 
   useEffect(() => {
-    console.log(props);
+   // console.log(props);
     // isAuth ? history.push("/") : history.push("/login");
   }, []);
   if (props.isAuthenticated) {
@@ -102,7 +102,7 @@ const Login = (props) => {
 };
 //const increment = (mail,password) => ({type:"Sign_in",payload: {email:mail,password:password}})
 const mapStateToProps = (state) => {
-  console.log(state);
+ // console.log(state);
   return { isLoggingIn: state.isLoggingIn, loginError: state.isLoginError, isAuthenticated: state.isAuthenticated };
 };
 
